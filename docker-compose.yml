@@ -1,7 +1,6 @@
-version: "3.9"
 services:
   gccrs-workspace:
-    image: MahadMuhammad/gccrs-workspace
+    image: mahadmuhammad/gccrs-workspace:0.1
     tty: true
     volumes:
       - ../../rust-gcc:/home/rust-gcc:rw
