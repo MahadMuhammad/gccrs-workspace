@@ -1,9 +1,9 @@
 version: "3.9"
 services:
   gccrs-workspace:
-    image: jjasmine/gccrs-workspace
+    image: MahadMuhammad/gccrs-workspace
     tty: true
     volumes:
-      - ./.workspace:/home/workspace
+      - ../../rust-gcc:/home/rust-gcc:rw
     ports:
       - "2200:22"

@@ -1,7 +1,7 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Set timezone (important for some packages) 
-ARG TZ=America/Los_Angeles
+ARG TZ=Asia/Karachi
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV HOME=/home
 
@@ -31,8 +31,8 @@ RUN apt-get install -y \
   file \
   rsync \
   tree \
-  git=1:2.43.2-0ppa1~ubuntu22.04.1
-  
+  git
+
 # SHELL FLAVORS
 RUN apt-get install -y \
   zsh \
@@ -77,7 +77,7 @@ RUN apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
 # GIT CUSTOMIZATION DEPENDENCIES
-RUN pip install requests unidiff
+RUN pip install requests unidiff --break-system-packages
 
 
 RUN useradd --create-home --home-dir /home/workspace --user-group workspace && echo workspace:workspace | chpasswd \
